@@ -1,0 +1,29 @@
+#seccion3 {
+  padding: 2rem 1rem;
+}
+
+form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-text {
+  min-height: 1.2rem;
+  display: block;
+}
+
+#btnRegistrar {
+  background-color: #1F4F45;
+  border-color: #1F4F45;
+}
+
+#btnRegistrar:hover {
+  background-color: #24685a;
+  border-color: #24685a;
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+}

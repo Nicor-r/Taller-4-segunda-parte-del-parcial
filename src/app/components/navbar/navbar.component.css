@@ -1,0 +1,13 @@
+nav {
+  background-color: #24685a;
+}
+
+.nav-link {
+  color: #F6FBF9;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: underline;
+}

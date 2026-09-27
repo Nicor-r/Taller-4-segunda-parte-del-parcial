@@ -1,0 +1,109 @@
+<div class="container-fluid" id="seccion3">
+  <hr>
+  <h2 class="text-center mb-4">Formulario para el Registro de una nueva cuenta</h2>
+  <p class="lead text-center">Complete los datos para crear su cuenta.</p>
+
+  <div class="alert alert-success text-center" role="alert" *ngIf="registroExitoso">
+    ¡Registro exitoso! Bienvenido/a a Piedra Verde.
+  </div>
+  <div class="alert alert-danger text-center" role="alert" *ngIf="mostrarAlerta">
+    Por favor, complete correctamente el formulario.
+  </div>
+
+  <form id="formularioContacto" class="row g-3 justify-content-center" novalidate
+    (ngSubmit)="registrar()" #formularioContacto="ngForm">
+
+    <!-- Tipo de Identificación -->
+    <div class="col-md-6 mb-3">
+      <label for="identificacion" class="form-label">Tipo de Identificación:</label>
+      <select id="identificacion" name="tipo-identificacion" class="form-select"
+        [class.is-invalid]="errores.tipoIdentificacion"
+        [(ngModel)]="datos.tipoIdentificacion"
+        (blur)="validarTipoIdentificacion()">
+        <option value="" disabled>Seleccione un tipo de identificación</option>
+        <option value="cc">Cédula de Ciudadanía</option>
+        <option value="ti">Tarjeta de Identidad</option>
+        <option value="ce">Cédula de Extranjería</option>
+        <option value="pas">Pasaporte</option>
+      </select>
+      <label class="text-danger form-text">{{ errores.tipoIdentificacion }}</label>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="numero-identificacion" class="form-label">Número de Identificación:</label>
+      <input type="text" id="numero-identificacion" name="numero-identificacion" class="form-control"
+        [class.is-invalid]="errores.numeroIdentificacion"
+        placeholder="Número de identificación"
+        [(ngModel)]="datos.numeroIdentificacion"
+        (blur)="validarNumeroIdentificacion()">
+      <label class="text-danger form-text">{{ errores.numeroIdentificacion }}</label>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="nombres" class="form-label">Nombres:</label>
+      <input type="text" id="nombres" name="nombres" class="form-control"
+        [class.is-invalid]="errores.nombres"
+        placeholder="Nombres del usuario"
+        [(ngModel)]="datos.nombres"
+        (blur)="validarNombres()">
+      <label class="text-danger form-text">{{ errores.nombres }}</label>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="apellidos" class="form-label">Apellidos:</label>
+      <input type="text" id="apellidos" name="apellidos" class="form-control"
+        [class.is-invalid]="errores.apellidos"
+        placeholder="Apellidos del usuario"
+        [(ngModel)]="datos.apellidos"
+        (blur)="validarApellidos()">
+      <label class="text-danger form-text">{{ errores.apellidos }}</label>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="correo-electronico" class="form-label">Correo Electrónico:</label>
+      <input type="email" id="correo-electronico" name="correo-electronico" class="form-control"
+        [class.is-invalid]="errores.correo"
+        placeholder="correo@gmail.com"
+        [(ngModel)]="datos.correo"
+        (blur)="validarCorreo()">
+      <label class="text-danger form-text">{{ errores.correo }}</label>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento:</label>
+      <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="form-control"
+        [class.is-invalid]="errores.fechaNacimiento"
+        [(ngModel)]="datos.fechaNacimiento"
+        (blur)="validarFechaNacimiento()">
+      <label class="text-danger form-text">{{ errores.fechaNacimiento }}</label>
+    </div>
+
+    <fieldset class="col-12 mb-3">
+      <legend class="form-label">Género:</legend>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="femenino" name="genero" value="femenino"
+          [checked]="datos.genero === 'femenino'"
+          (change)="onSeleccionarGenero('femenino')" (blur)="validarGenero()">
+        <label class="form-check-label" for="femenino">Femenino</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="masculino" name="genero" value="masculino"
+          [checked]="datos.genero === 'masculino'"
+          (change)="onSeleccionarGenero('masculino')" (blur)="validarGenero()">
+        <label class="form-check-label" for="masculino">Masculino</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="otro" name="genero" value="otro"
+          [checked]="datos.genero === 'otro'"
+          (change)="onSeleccionarGenero('otro')" (blur)="validarGenero()">
+        <label class="form-check-label" for="otro">Otro</label>
+      </div>
+      <br>
+      <label class="text-danger form-text">{{ errores.genero }}</label>
+    </fieldset>
+
+    <div class="col-12 d-flex justify-content-center">
+      <button type="submit" id="btnRegistrar" class="btn btn-success btn-lg px-5">Registrar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+/* Estilos globales de la aplicación Clínica Piedra Verde */
+
+body {
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h5 {
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  height: 15px;
+}
+
+.progress-bar {
+  border-radius: 0;
+}

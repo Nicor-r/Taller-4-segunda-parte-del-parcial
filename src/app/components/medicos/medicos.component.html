@@ -1,0 +1,46 @@
+<div class="container-fluid" id="seccion2">
+  <div class="row">
+    <!-- Barra lateral (Especialidades) -->
+    <aside class="col-12 col-md-4 col-lg-3 mt-2">
+      <h4 class="mb-3">Especialidades</h4>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action"
+          [class.active]="!especialidadSeleccionada"
+          (click)="mostrarTodos(); $event.preventDefault()">
+          Todas las especialidades
+        </a>
+        <a href="#" class="list-group-item list-group-item-action"
+          *ngFor="let especialidad of especialidades"
+          [class.active]="especialidadSeleccionada?.id === especialidad.id"
+          (click)="mostrarEspecialidad(especialidad.id); $event.preventDefault()">
+          {{ especialidad.nombre }}
+        </a>
+      </div>
+      <div id="descripcionEspecialidad" class="mt-3">
+        <p *ngIf="!especialidadSeleccionada">Selecciona una especialidad para ver la descripción y filtrar los médicos.</p>
+        <p *ngIf="especialidadSeleccionada">{{ especialidadSeleccionada.descripcion }}</p>
+      </div>
+    </aside>
+
+    <!-- Sección de médicos -->
+    <main class="col-12 col-md-8 col-lg-9">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 medicos-container">
+        <div class="col" *ngFor="let medico of medicosFiltrados">
+          <div class="card h-100 medico-card-center">
+            <img [src]="medico.imagen" alt="Imagen Doctor" class="img-fluid">
+            <h6 class="medico-nombre">{{ medico.nombre }}</h6>
+            <div class="text-muted small mb-3">
+              <p class="mb-1">{{ medico.especialidad }}</p>
+              <hr>
+              <p class="mb-0">{{ medico.descripcion }}</p>
+            </div>
+            <button class="btn btn-primary w-100">Agendar Cita</button>
+          </div>
+        </div>
+        <p class="text-center text-muted" *ngIf="medicosFiltrados.length === 0">
+          No hay médicos registrados para esta especialidad todavía.
+        </p>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container-fluid mt-2" id="seccion1">
+  <div id="carouselPrincipal" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let diapositiva of diapositivas; let i = index" type="button"
+        data-bs-target="#carouselPrincipal" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
+        [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Diapositiva ' + (i + 1)"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let diapositiva of diapositivas; let i = index" [class.active]="i === 0">
+        <img class="d-block" [src]="diapositiva.imagen" [alt]="diapositiva.titulo">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{ diapositiva.titulo }}</h5>
+          <p>{{ diapositiva.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselPrincipal" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselPrincipal" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </a>
+  </div>
+</div>

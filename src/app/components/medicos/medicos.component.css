@@ -1,0 +1,69 @@
+.medicos-container {
+  gap: 5px;
+  margin-top: 3px;
+  justify-content: center;
+  padding: 0;
+}
+
+.medico-card-center {
+  background-color: #ffffff;
+  border: 1px solid #d9ece7;
+  border-radius: 14px;
+  padding: 1.25rem 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(31, 79, 69, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.medico-card-center:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(31, 79, 69, 0.18);
+}
+
+.medico-card-center img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: top center;
+  margin: 0 auto 0.75rem;
+  border: 4px solid #8FD1BD;
+  box-shadow: 0 4px 10px rgba(31, 79, 69, 0.2);
+}
+
+.medico-nombre {
+  color: #1F4F45;
+  font-weight: 700;
+}
+
+.medico-card-center .btn-primary {
+  background-color: #1F4F45;
+  border-color: #1F4F45;
+}
+
+.medico-card-center .btn-primary:hover {
+  background-color: #24685a;
+  border-color: #24685a;
+}
+
+.list-group-item.active {
+  background-color: #1F4F45;
+  border-color: #1F4F45;
+}
+
+#descripcionEspecialidad {
+  background-color: #f6fbf9;
+  border-left: 4px solid #1F4F45;
+  padding: 10px;
+  border-radius: 4px;
+  min-height: 60px;
+}
+
+/* Responsive: sidebar y medicos */
+@media (max-width: 767.98px) {
+  aside {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Responsive: medicos por fila -> row-cols ya maneja 1/2/3/4 en breakpoints sm/md/lg */
